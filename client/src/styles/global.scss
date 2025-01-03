@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .my-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 20px;
+
+        @apply min-h-screen bg-[#2a2a2b] text-white p-10;
+
+        div {
+            @apply bg-[#595555] rounded-2xl p-5;
+
+            h2 {
+                @apply text-xl font-semibold capitalize mb-3;
+            }
+
+            // Background check
+            &:nth-child(1) {
+                grid-column: 1/2;
+            }
+
+            // tracing the misinformation origin
+            &:nth-child(2) {
+                grid-column: 2/4;
+
+                @apply flex flex-col items-center;
+            }
+
+            // consulting (independent) fact-checkers
+            &:nth-child(3) {
+                grid-column: 4/5;
+            }
+
+            // summary
+            &:nth-child(4) {
+                grid-column: 1/3;
+            }
+
+            // LLM
+            &:nth-child(5) {
+                grid-column: 3/5;
+            }
+        }
+    }
+}
